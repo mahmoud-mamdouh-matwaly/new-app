@@ -1,25 +1,27 @@
 import React, { Component } from "react";
 import API from "../../utils/api";
 import PropTypes from "prop-types";
-import SubCategorys from "../SubCategorys/SubCategorys";
-import "./category.css";
+import SubCategories from "../SubCategories/SubCategories";
+import "./Categories.css";
 
-class Category extends Component {
+class Categories extends Component {
   static propTypes = {
-    categorys: PropTypes.array
+    categories: PropTypes.array
   };
   static defaultProps = {
-    categorys: []
+    categories: []
   };
   state = {
-    subCategorys: []
+    subCategories: [],
+    active: null
   };
 
   loadCategoryData = categoryId => {
     if (categoryId) {
-      API.getSubCategorys(categoryId).then(data => {
+      API.getSubCategories(categoryId).then(data => {
         this.setState({
-          subCategorys: [
+          active: categoryId,
+          subCategories: [
             ...data.map(result => ({
               id: result.id,
               title: result.name,
@@ -36,27 +38,33 @@ class Category extends Component {
   }
 
   render() {
-    const { categorys } = this.props;
-    const { subCategorys } = this.state;
+    const { categories } = this.props;
+    const { subCategories, active } = this.state;
     return (
       <>
         <header className="header">
           <nav className="header__navigation">
             <ul className="header__list">
-              {categorys.map(res => (
+              {categories.map(res => (
                 <li className="header__item" key={res.id}>
-                  <a onClick={() => this.loadCategoryData(res.id)}>
+                  <button
+                    type="button"
+                    className={
+                      active === res.id ? "button-active" : "link-button"
+                    }
+                    onClick={() => this.loadCategoryData(res.id)}
+                  >
                     {res.title}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
           </nav>
         </header>
-        <SubCategorys subCategorys={subCategorys} />
+        <SubCategories subCategories={subCategories} />
       </>
     );
   }
 }
 
-export default Category;
+export default Categories;

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import Category from "../category/category";
+import Categories from "../Categories/Categories";
 import "./container.css";
 class Container extends Component {
   render() {
-    const { categorys } = this.props;
+    const { categories } = this.props;
     return (
       <div className="container">
-        <Category categorys={categorys} />
+        <Categories categories={categories} />
       </div>
     );
   }

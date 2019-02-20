@@ -9,9 +9,7 @@ import * as serviceWorker from "./serviceWorker";
 ReactDOM.render(
   <DataProvider>
     <DataContext.Consumer>
-      {({ categorys, subCategorys }) => (
-        <App categorys={categorys} subCategorys={subCategorys} />
-      )}
+      {({ categories }) => <App categories={categories} />}
     </DataContext.Consumer>
   </DataProvider>,
   document.getElementById("root")

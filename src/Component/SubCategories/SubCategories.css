@@ -5,37 +5,49 @@
 .header__sublist {
   display: flex;
   list-style: none;
-  margin: 20px 0;
   align-items: center;
   justify-content: flex-start;
   overflow-x: scroll;
   width: 100%;
-  padding: 0 20px;
+  padding: 20px;
 }
 .header__subitem {
   margin-inline-end: 15px;
   text-transform: capitalize;
   margin-inline-end: 15px;
-  text-transform: capitalize;
-  padding: 5px 15px;
-  background-image: linear-gradient(to left, #ffa600 0%, #f5ca0a 100%);
-  border-radius: 25px;
-  color: #ffffff;
-  font-size: 16px;
 }
-.header__subitem a {
+.header__subitem .link-button {
   font-weight: 400;
   text-decoration: none;
   font-size: 15px;
+  border-radius: 25px;
+  text-transform: capitalize;
+  padding: 5px 15px;
+  background-image: linear-gradient(to left, #ffa600 0%, #f5ca0a 100%);
+  border: 1px solid transparent;
+  outline: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+.header__subitem .button-active {
+  font-weight: 400;
+  font-size: 15px;
+  background-image: linear-gradient(to left, #fff 0%, #fafafa 100%);
+  color: #f5ca0a;
+  border: 1px solid #ffa600;
+  text-transform: capitalize;
+  padding: 5px 15px;
+  border-radius: 25px;
+  outline: none;
 }
 
 @media (min-width: 500px) {
   .header__sublist {
     overflow-x: hidden;
     justify-content: center;
-    padding: 0;
   }
-  .header__subitem {
+  .header__subitem .link-button,
+  .header__subitem .button-active {
     padding: 10px 20px;
   }
 }
@@ -44,9 +56,9 @@
   .header__sublist {
     overflow-x: scroll;
     justify-content: flex-start;
-    padding: 0 20px;
   }
-  .header__subitem {
+  .header__subitem .link-button,
+  .header__subitem .button-active {
     padding: 10px 20px;
   }
 }

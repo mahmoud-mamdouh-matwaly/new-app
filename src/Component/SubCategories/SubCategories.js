@@ -3,21 +3,23 @@ import PropTypes from "prop-types";
 import API from "../../utils/api";
 import GenrePage from "../GenrePage/GenrePage";
 import Spinner from "../spinner/spinner";
-import "./SubCategorys.css";
-class SubCategorys extends Component {
+import "./SubCategories.css";
+class SubCategories extends Component {
   static propTypes = {
-    subCategorys: PropTypes.array
+    subCategories: PropTypes.array
   };
   static defaultProps = {
-    subCategorys: []
+    subCategories: []
   };
   state = {
-    cards: []
+    cards: [],
+    active: null
   };
+
   loadingData = slug => {
-    console.log(slug);
     API.getData(slug).then(data => {
       this.setState(state => ({
+        active: slug,
         cards: [
           ...data.articles.map(result => ({
             title: result.title,
@@ -33,15 +35,23 @@ class SubCategorys extends Component {
     this.loadingData();
   }
   render() {
-    const { subCategorys } = this.props;
-    const { cards, loading } = this.state;
+    const { subCategories } = this.props;
+    const { cards, loading, active } = this.state;
     return (
       <>
         <nav className="header__subnavigation">
           <ul className="header__sublist">
-            {subCategorys.map(res => (
+            {subCategories.map(res => (
               <li className="header__subitem" key={res.id}>
-                <a onClick={() => this.loadingData(res.slug)}>{res.title}</a>
+                <button
+                  type="button"
+                  className={
+                    active === res.slug ? "button-active" : "link-button"
+                  }
+                  onClick={() => this.loadingData(res.slug)}
+                >
+                  {res.title}
+                </button>
               </li>
             ))}
           </ul>
@@ -56,4 +66,4 @@ class SubCategorys extends Component {
   }
 }
 
-export default SubCategorys;
+export default SubCategories;

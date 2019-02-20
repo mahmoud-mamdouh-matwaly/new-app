@@ -3,10 +3,10 @@ import Container from "../Component/Container/Container";
 import "./App.css";
 class App extends Component {
   render() {
-    const { categorys } = this.props;
+    const { categories } = this.props;
     return (
       <>
-        <Container categorys={categorys} />
+        <Container categories={categories} />
       </>
     );
   }

@@ -55,6 +55,12 @@
 .card__iconlist li i {
   color: #000;
 }
+.card__iconlist .link-button {
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+}
 .card__iconlist li span {
   color: #000;
   text-transform: capitalize;

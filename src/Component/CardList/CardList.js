@@ -22,16 +22,16 @@ class CardList extends Component {
           <div className="card__action">
             <ul className="card__iconlist">
               <li>
-                <a href="javascript:void(0)">
+                <button type="button" className="link-button">
                   <i className="fa fa-heart" />
                   <span>save</span>
-                </a>
+                </button>
               </li>
               <li>
-                <a href="javascript:void(0)">
+                <button type="button" className="link-button">
                   <i className="fa fa-share-alt" />
                   <span>share</span>
-                </a>
+                </button>
               </li>
             </ul>
           </div>

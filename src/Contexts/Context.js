@@ -5,13 +5,13 @@ export const DataContext = React.createContext();
 
 export class DataProvider extends React.Component {
   state = {
-    categorys: []
+    categories: []
   };
 
   handleData = data => {
     this.setState(state => ({
-      categorys: [
-        ...state.categorys,
+      categories: [
+        ...state.categories,
         ...data.map(result => ({
           id: result.id,
           title: result.name
@@ -21,7 +21,7 @@ export class DataProvider extends React.Component {
   };
 
   componentDidMount() {
-    API.getCategorys().then(this.handleData);
+    API.getCategories().then(this.handleData);
   }
 
   render() {
