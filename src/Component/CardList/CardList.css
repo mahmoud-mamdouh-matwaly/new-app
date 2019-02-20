@@ -1,11 +1,13 @@
 .card__list {
-  max-width: 310px;
   padding: 8px;
   border-radius: 2px;
   box-shadow: 0px 5px 12px 1px #d4cfcf;
   background-color: #ffffff;
   margin-bottom: 20px;
+  flex-basis: 100%;
+  max-width: 100%;
 }
+
 .card__list a {
   text-decoration: none;
 }
@@ -38,17 +40,18 @@
 .card__iconlist {
   display: flex;
   list-style: none;
-  flex-basis: 50%;
+  flex-basis: 56%;
 }
 .card__iconlist li {
   display: flex;
   flex-basis: 50%;
   justify-content: space-between;
+  font-size: 14px;
 }
 .card__list:last-child {
   margin-right: auto;
-  margin-left: 36px;
 }
+
 .card__iconlist li i {
   color: #000;
 }
@@ -57,4 +60,24 @@
   text-transform: capitalize;
   margin-left: 5px;
   font-weight: 400;
+}
+
+@media (min-width: 500px) {
+  .card__list {
+    flex-basis: 32%;
+    max-width: 31%;
+  }
+  .card__list:last-child {
+    margin-left: 36px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .card__list {
+    flex-basis: 32%;
+    max-width: 31%;
+  }
+  .card__list:last-child {
+    margin-left: 36px;
+  }
 }
