@@ -1,0 +1,31 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,400i,600,700,800");
+
+/* FontAwesome Icons */
+@import url("https://use.fontawesome.com/releases/v5.3.1/css/solid.css");
+@import url("https://use.fontawesome.com/releases/v5.3.1/css/fontawesome.css");
+
+/* General */
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100vh;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Nunito, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+p {
+  margin: 15px 0 0;
+}

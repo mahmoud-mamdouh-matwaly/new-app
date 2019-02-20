@@ -1,0 +1,60 @@
+.card__list {
+  max-width: 310px;
+  padding: 8px;
+  border-radius: 2px;
+  box-shadow: 0px 5px 12px 1px #d4cfcf;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+}
+.card__list a {
+  text-decoration: none;
+}
+.card__title {
+  font-size: 18px;
+  margin-top: 0;
+  font-weight: 300;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  direction: rtl;
+  color: #000;
+  margin-bottom: 10px;
+}
+.card__image {
+  height: 0;
+  padding-bottom: 50%;
+  overflow: hidden;
+  position: relative;
+}
+.card__list img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+.card__action {
+  margin: 10px 0 0;
+  display: flex;
+}
+.card__iconlist {
+  display: flex;
+  list-style: none;
+  flex-basis: 50%;
+}
+.card__iconlist li {
+  display: flex;
+  flex-basis: 50%;
+  justify-content: space-between;
+}
+.card__list:last-child {
+  margin-right: auto;
+  margin-left: 36px;
+}
+.card__iconlist li i {
+  color: #000;
+}
+.card__iconlist li span {
+  color: #000;
+  text-transform: capitalize;
+  margin-left: 5px;
+  font-weight: 400;
+}
