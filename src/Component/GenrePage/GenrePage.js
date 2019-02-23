@@ -1,35 +1,19 @@
-import React, { Component } from "react";
-import CardList from "../CardList/CardList";
-import PropTypes from "prop-types";
+import React from "react";
+import CardItem from "../CardItem/CardItem";
 
 import "./GenrePage.css";
 
-class GenrePage extends Component {
-  static propTypes = {
-    cards: PropTypes.array
-  };
-
-  static defaultProps = {
-    cards: []
-  };
-
-  render() {
-    const { cards } = this.props;
-    return (
-      <>
-        <div className="card">
-          {cards.map(card => (
-            <CardList
-              key={card.title}
-              cardTitle={card.title}
-              cardurl={card.url}
-              cardImg={card.img}
-            />
-          ))}
-        </div>
-      </>
-    );
-  }
-}
+const GenrePage = props => (
+  <section className="card">
+    {props.cards.map(card => (
+      <CardItem
+        key={card.title}
+        cardTitle={card.title}
+        cardurl={card.url}
+        cardImg={card.img}
+      />
+    ))}
+  </section>
+);
 
 export default GenrePage;

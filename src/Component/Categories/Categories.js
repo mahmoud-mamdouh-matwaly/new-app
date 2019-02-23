@@ -16,7 +16,7 @@ class Categories extends Component {
     active: null
   };
 
-  loadCategoryData = categoryId => {
+  loadSubCategoryData = categoryId => {
     if (categoryId) {
       API.getSubCategories(categoryId).then(data => {
         this.setState({
@@ -34,7 +34,7 @@ class Categories extends Component {
   };
 
   componentDidMount() {
-    this.loadCategoryData();
+    this.loadSubCategoryData();
   }
 
   render() {
@@ -52,7 +52,7 @@ class Categories extends Component {
                     className={
                       active === res.id ? "button-active" : "link-button"
                     }
-                    onClick={() => this.loadCategoryData(res.id)}
+                    onClick={() => this.loadSubCategoryData(res.id)}
                   >
                     {res.title}
                   </button>

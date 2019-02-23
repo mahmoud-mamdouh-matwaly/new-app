@@ -1,14 +1,14 @@
-.card__list {
+.card__item {
   padding: 8px;
   border-radius: 2px;
   box-shadow: 0px 5px 12px 1px #d4cfcf;
   background-color: #ffffff;
   margin-bottom: 20px;
-  flex-basis: 100%;
-  max-width: 100%;
+  flex-basis: 32%;
+  max-width: 31%;
 }
 
-.card__list a {
+.card__item a {
   text-decoration: none;
 }
 .card__title {
@@ -28,7 +28,7 @@
   overflow: hidden;
   position: relative;
 }
-.card__list img {
+.card__image img {
   object-fit: cover;
   width: 100%;
   height: auto;
@@ -37,53 +37,55 @@
   margin: 10px 0 0;
   display: flex;
 }
-.card__iconlist {
+.card__iconItem {
   display: flex;
   list-style: none;
   flex-basis: 56%;
 }
-.card__iconlist li {
+.card__iconItem li {
   display: flex;
   flex-basis: 50%;
   justify-content: space-between;
   font-size: 14px;
 }
-.card__list:last-child {
+.card__iconItem:last-child {
   margin-right: auto;
 }
 
-.card__iconlist li i {
+.card__iconItem li i {
   color: #000;
 }
-.card__iconlist .link-button {
+.card__iconItem .link-button {
   background-color: transparent;
   border: 0;
   outline: none;
   cursor: pointer;
 }
-.card__iconlist li span {
+.card__iconItem li span {
   color: #000;
   text-transform: capitalize;
   margin-left: 5px;
   font-weight: 400;
 }
 
-@media (min-width: 500px) {
-  .card__list {
-    flex-basis: 32%;
-    max-width: 31%;
+@media (max-width: 575px) {
+  .card__item {
+    flex-basis: 100%;
+    max-width: 100%;
   }
-  .card__list:last-child {
+  .card__item:last-child {
     margin-left: 36px;
   }
 }
-
-@media (min-width: 768px) and (max-width: 991px) {
-  .card__list {
-    flex-basis: 32%;
-    max-width: 31%;
+@media (min-width: 576px) and (max-width: 767px) {
+  .card__item {
+    flex-basis: 47%;
+    max-width: 47%;
   }
-  .card__list:last-child {
+  .card__item:last-child {
+    margin-left: 36px;
+  }
+  .card__item:last-child {
     margin-left: 36px;
   }
 }
