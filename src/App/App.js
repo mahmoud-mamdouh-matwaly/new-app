@@ -1,44 +1,37 @@
 import React, { Component } from "react";
 import DataContext from "../Contexts/Context";
-import API from "../utils/api";
 import Categories from "../Component/Categories/Categories";
-
+import SubCategories from "../Component/SubCategories/SubCategories";
+import GenrePage from "../Component/GenrePage/GenrePage";
 import "./App.css";
 class App extends Component {
   state = {
-    categoriesItem: [],
-    IdCategory: []
+    IdCategory: [],
+    slugName: []
   };
 
-  handleCategories = data => {
-    this.setState(() => ({
-      categoriesItem: [
-        ...data.map(result => ({
-          id: result.id,
-          title: result.name
-        }))
-      ]
-    }));
-  };
-
-  componentDidMount() {
-    API.getCategories().then(this.handleCategories);
-  }
-
-  getIdCategory = () => ({
+  handleData = () => ({
     IdCategory: this.state.IdCategory,
     getIdCategory: id => {
-      this.setState(state => ({
+      this.setState(() => ({
         IdCategory: id
+      }));
+    },
+    getSlugName: slugName => {
+      this.setState(state => ({
+        ...state.IdCategory,
+        slugName: slugName
       }));
     }
   });
 
   render() {
-    const { categoriesItem } = this.state;
+    const { IdCategory, slugName } = this.state;
     return (
-      <DataContext.Provider value={this.getIdCategory()}>
-        <Categories categories={categoriesItem} />
+      <DataContext.Provider value={this.handleData()}>
+        <Categories />
+        <SubCategories IdCategory={IdCategory} />
+        <GenrePage slugName={slugName} />
       </DataContext.Provider>
     );
   }

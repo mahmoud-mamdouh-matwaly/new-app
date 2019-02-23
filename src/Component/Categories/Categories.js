@@ -1,67 +1,58 @@
 import React, { Component } from "react";
 import API from "../../utils/api";
-import PropTypes from "prop-types";
-import SubCategories from "../SubCategories/SubCategories";
 import "./Categories.css";
-
+import DataContext from "../../Contexts/Context";
 class Categories extends Component {
-  static propTypes = {
-    categories: PropTypes.array
-  };
-  static defaultProps = {
-    categories: []
-  };
   state = {
-    subCategories: [],
-    active: null
+    active: null,
+    categoriesItem: []
   };
 
-  loadSubCategoryData = categoryId => {
-    if (categoryId) {
-      API.getSubCategories(categoryId).then(data => {
-        this.setState({
-          active: categoryId,
-          subCategories: [
-            ...data.map(result => ({
-              id: result.id,
-              title: result.name,
-              slug: result.slug
-            }))
-          ]
-        });
-      });
-    }
+  handleCategories = data => {
+    this.setState(() => ({
+      categoriesItem: [
+        ...data.map(result => ({
+          id: result.id,
+          name: result.name
+        }))
+      ]
+    }));
   };
 
   componentDidMount() {
-    this.loadSubCategoryData();
+    API.getCategories().then(this.handleCategories);
   }
 
+  static contextType = DataContext;
+
+  handleClick = IdCategory => {
+    this.context.getIdCategory(IdCategory);
+    this.setState({ active: IdCategory });
+  };
+
   render() {
-    const { categories } = this.props;
-    const { subCategories, active } = this.state;
+    const { active, categoriesItem } = this.state;
     return (
       <>
         <header className="header">
           <nav className="header__navigation">
             <ul className="header__list">
-              {categories.map(res => (
+              {categoriesItem.map(res => (
                 <li className="header__item" key={res.id}>
                   <button
                     type="button"
                     className={
                       active === res.id ? "button-active" : "link-button"
                     }
-                    onClick={() => this.loadSubCategoryData(res.id)}
+                    onClick={() => this.handleClick(res.id)}
                   >
-                    {res.title}
+                    {res.name}
                   </button>
                 </li>
               ))}
             </ul>
           </nav>
         </header>
-        <SubCategories subCategories={subCategories} />
       </>
     );
   }
