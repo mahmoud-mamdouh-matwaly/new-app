@@ -74,7 +74,7 @@
     max-width: 100%;
   }
   .card__item:last-child {
-    margin-left: 36px;
+    margin-left: 0;
   }
 }
 @media (min-width: 576px) and (max-width: 767px) {
